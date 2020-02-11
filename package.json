@@ -1,0 +1,7 @@
+{
+  "name": "StudyAPP",
+  "private": true,
+  "dependencies": {
+    "alertifyjs": "^1.13.1"
+  }
+}

@@ -1,0 +1,75 @@
+<%= search_form_for @q do |f| %>
+  <%= f.search_field :name_cont, class: 'form-control', placeholder: 'Pesquisar...' %>
+<% end %>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <% @movies.each do |movie| %>
+        <div class="col-md-4">
+          <%= link_to(movie_path(movie), style:'color:#212529; text-decoration:none') do %>
+            <div class="card mb-4 box-shadow">
+              <%= image_tag movie.image, width: '100%', height: '235em' %>
+              <h4 class="card-text text-center"><%= movie.name %></h4>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= paginate @movies %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  #videosList {
+    width: 100%; 
+    height: 235em;
+    overflow: hidden;
+  }
+  
+  .video {
+    background-image: url('https://img.youtube.com/vi/nZcejtAwxz4/maxresdefault.jpg');
+    height: 330px;
+    width: 600px;
+    margin-bottom: 50px;
+  }
+  
+  /* Hide Play button + controls on iOS */
+  video::-webkit-media-controls {
+      display:none !important;
+  }
+</style>
+
+<div id="videosList">           
+
+<div class="video">
+    <video class="thevideo" loop preload="none">
+      <source src="https://giant.gfycat.com/VerifiableTerrificHind.mp4" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<script>
+  var figure = $(".video").hover( hoverVideo, hideVideo );
+
+  function hoverVideo(e) {  
+      $('video', this).get(0).play(); 
+  }
+  
+  function hideVideo(e) {
+      $('video', this).get(0).pause(); 
+  }
+</script>

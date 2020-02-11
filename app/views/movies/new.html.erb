@@ -1,0 +1,32 @@
+<% if @movie.errors.any? %>
+  <div class="alert alert-danger alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <ul>
+      <% @movie.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="col-lg-6">
+  <%= form_for @movie do |f| %>
+    <%= f.label 'Nome:' %>
+    <%= f.text_field :name, class: 'form-control', placeholder: 'Nome' %>
+    
+    <%= f.label 'Descrição:' %>
+    <%= f.text_field :description, class: 'form-control', placeholder: 'Descrição' %>
+    
+    <%= f.label 'Data de Lançamento:' %>
+    <%= f.date_field :release, class: 'form-control', placeholder: 'Lançamento' %>
+    
+    <%= f.label 'Imagem:' %>
+    <%= f.file_field :image %>
+    
+    <%= f.label 'Trailer:' %>
+    <%= f.file_field :clip, class: 'thevideo' %>
+    <br>
+    
+    <%= f.submit 'Salvar', class: 'float-left btn btn-primary' %>
+  <% end %>
+</div>

@@ -1,0 +1,32 @@
+<link href="/assets/users/user_login.scss" media="all" rel="stylesheet" />
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <br>
+      <div id="email" class="fadeIn second" name="email">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div><br>
+    
+      <div id="password" class="fadeIn third">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password" %>
+      </div><br>
+    
+      <% if devise_mapping.rememberable? %>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end %>
+    
+      <div class="fadeIn fourth">
+        <%= f.submit "Log in" %>
+      </div>
+      
+      <%= render "users/shared/links" %>
+      <br>
+    <% end %>
+  </div>
+</div>

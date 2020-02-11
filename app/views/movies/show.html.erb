@@ -1,0 +1,7 @@
+<div class="container text-center mt-5 mb-5">
+  <h1><%= @movie.name %></h1>
+  <h2><%= @movie.description %></h2>
+  <h3><%= @movie.release %></h3>
+  <%= image_tag @movie.image %>
+  <%= video_tag(url_for(@movie.clip), width: '80%', controls: '') %>
+</div>
